@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<head>
+</head>
+<body>
+    <div align="left">
+    <h1>Student Portal</h1>
+    <form onsubmit="entry()">
+    <input type="text" name="username" id="username" placeholder=" Name"><br><br>
+    <input type="text" name="studentid" id="studentid" placeholder=" student id"><br><br>
+    <input type="text" name="Email" id="email" placeholder=" Email"><br><br>
+    <input type="text" name="mark1" id="mark1" placeholder=" mark1"><br><br>
+    <input type="text" name="mark2" id="mark2" placeholder=" mark2"><br><br>
+    <input type="text" name="mark3" id="mark3" placeholder=" mark3"><br><br>
+    
+    <input type="submit" value="submit"><br>
+    
+    </form>
+    </div>
+    
+    <!-- <button onclick="native()">click</button> -->
+    <script>
+        // called when the runtime is ready
+        var Module = {
+            onRuntimeInitialized: function () {
+                alert('onRuntimeInitialized');
+            }
+        };
+ 
+        // called from main()
+        function onLoaded() {
+            alert('Module is loaded');
+        }
+           
+      
+        function entry() {
+            // var abc = document.getElementById('para');
+             var a = document.getElementById('username').value;
+              var b = document.getElementById('studentid').value;
+              var c = document.getElementById('email').value;
+              var d = document.getElementById('mark1').value;
+              var e = document.getElementById('mark2').value;
+              var f = document.getElementById('mark3').value;
+          var uname = Module.ccall('entryc', 'string', ['string','int','string','int','int','int','int'], [a,b,c,d,e,f]);
+
+            
+            alert(uname);
+        }
+
+        function view() {
+            // var abc = document.getElementById('para');
+             var em = document.getElementById('viewemail').value;
+              // var b = document.getElementById('studentid').value;
+              // var c = document.getElementById('email').value;
+              // var d = document.getElementById('mark1').value;
+              // var e = document.getElementById('mark2').value;
+              // var f = document.getElementById('mark3').value;
+          var data = Module.ccall('viewc', 'string',['string'],[em]);
+
+           
+            alert(data);
+        }
+        
+    </script>
+    <script async type="text/javascript" src="abc.js"></script>
+</body>
+ 
+</html>

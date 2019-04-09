@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<head>
+        <script async type="text/javascript" src="abc.js"></script>
+</head>
+<body>
+    <div align="left">
+    <h1>Student Portal</h1>
+    <form onsubmit="native()">
+    <input type="text" name="username" id="username" placeholder=" UserName"><br><br>
+    <input type="text" name="password" id="password" placeholder=" password"><br><br>
+    <input type="submit" value="login" target ="abc2.html"><br>
+    
+    </form>
+    </div>
+    <div>
+        <p id="ref1"> </p>
+    </div>
+    <!-- <button onclick="native()">click</button> -->
+    <script>
+        // called when the runtime is ready
+        var Module = {
+            onRuntimeInitialized: function () {
+                alert('onRuntimeInitialized');
+            }
+        };
+ 
+        // called from main()
+        function onLoaded() {
+            alert('Module is loaded');
+        }
+           
+      
+        function native() {
+            // var abc = document.getElementById('para');
+             var a = document.getElementById('username').value;
+              var b = document.getElementById('password').value;
+          //  var uname = Module.ccall('world', 'string', ['string','string'], [a,b]);
+         //  var pwd = Module.ccall('world', 'string', ['string','string'], [a,b]);
+
+         var uname = Module.ccall('world', 'string', ['string'], [a]);
+
+           alert(uname);
+
+           document.getElementById('ref1').innerHTML = uname;
+        }
+        
+    </script>
+
+</body>
+ 
+</html>
